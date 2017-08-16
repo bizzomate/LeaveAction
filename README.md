@@ -14,4 +14,4 @@ This widget allows you to configure a microflow to be executed when the user exi
 
 ## Contributing
 
-Want to contribute to this widget, submit a feature request or report a bug? Please use the [GitHub repository]()!
+Want to contribute to this widget, submit a feature request or report a bug? Please use the [GitHub repository](https://github.com/bizzomate/LeaveAction)!
