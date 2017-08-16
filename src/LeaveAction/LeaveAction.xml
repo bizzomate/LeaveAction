@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="LeaveAction.widget.LeaveAction" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>LeaveAction</name>
+    <description>Execute a microflow when the user leaves the page without using the save/cancel buttons.</description>
+
+    <icon />
+
+    <properties>
+        <property key="mfToExecute" type="microflow" required="true" defaultValue="">
+            <caption>Microflow</caption>
+            <category>Behavior</category>
+            <description>The microflow to execute when the user leaves the page.</description>
+            <returnType type="Void" />
+        </property>
+        <property key="warningOnPageClose" type="boolean" required="true" defaultValue="false">
+            <caption>Warn on closing page</caption>
+            <category>Behavior</category>
+            <description>Should the user be presented with a pop-up when he tries to close the page?</description>
+        </property>
+        <property key="excludeSelector" type="string" required="false" defaultValue=".mx-button">
+            <caption>CSS exclude selector</caption>
+            <category>Behavior</category>
+            <description>CSS selector for buttons to exclude; Microflow will not be executed if the user moves aways from the page using a matching button.</description>
+        </property>
+    </properties>
+</widget>
+
