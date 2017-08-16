@@ -98,10 +98,10 @@ define([
 
     _onClose: function (event) {
       logger.debug(this.id + "._onClose");
-      this.uninitialize();
       if (this.warningOnPageClose && this._active) {
         event.preventDefault();
       }
+      this.uninitialize();
     },
 
     _deactivate: function (event) {
