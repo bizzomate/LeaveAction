@@ -5,8 +5,8 @@ This widget allows you to configure a microflow to be executed when the user exi
 ##Features and limitations
 * Allows a microflow to be executed when the user exits the page
 * Possible to show a confirmation dialog when the user closes the browser tab
-* Possible to specify which items that result in navigation should be excluded (default: .mx-button)
-* Widget will always be triggered when the user closes the browser tab, or uses browser navigation (back/forward)
+* Possible to specify which items that result in navigation should be excluded (default: .mx-dataview-controls .mx-button)
+* Once the exclude is triggered by a button click, the widget will not do anything. So ensure that the exclude setting only triggers for buttons that have their own close page behaviour. 
 
 
 ##Dependencies

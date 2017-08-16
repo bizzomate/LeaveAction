@@ -17,7 +17,7 @@
             <category>Behavior</category>
             <description>Should the user be presented with a pop-up when he tries to close the page?</description>
         </property>
-        <property key="excludeSelector" type="string" required="false" defaultValue=".mx-button">
+        <property key="excludeSelector" type="string" required="false" defaultValue=".mx-dataview-controls .mx-button">
             <caption>CSS exclude selector</caption>
             <category>Behavior</category>
             <description>CSS selector for buttons to exclude; Microflow will not be executed if the user moves aways from the page using a matching button.</description>

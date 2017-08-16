@@ -90,7 +90,7 @@ define([
       this.connect(this.mxform, "onNavigation", function () {
         if (this.excludeSelector && this.excludeSelector.trim().length > 0) {
           dojoQuery(this.excludeSelector).forEach(dojoLang.hitch(this, function (node) {
-            this._handles.push(dojoOn(node, "click", dojoLang.hitch(this, this._deactivate)));
+            this._handles.push(dojoOn(node, "click", dojoLang.hitch(this, this._onExclude)));
           }));
         }
       });
@@ -104,8 +104,8 @@ define([
       this.uninitialize();
     },
 
-    _deactivate: function (event) {
-      logger.debug(this.id + ".deactivate");
+    _onExclude: function (event) {
+      logger.debug(this.id + "._onExclude");
       this._active = false;
     },
 
