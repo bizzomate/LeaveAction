@@ -4,9 +4,9 @@
     ========================
 
     @file      : LeaveAction.js
-    @version   : 1.0.0
+    @version   : 1.1.0
     @author    : Jelle Dekker
-    @date      : 8/15/2017
+    @date      : 2017/09/29
     @copyright : Bizzomate 2017
     @license   : Apache 2
 
@@ -31,7 +31,8 @@ define([
     // Parameters configured in the Modeler.
     mfToExecute: "",
     warningOnPageClose: "",
-    excludeSelector: "",
+    executionMode: "",
+    cssSelector: "",
 
     // Internal variables. Non-primitives created in the prototype are shared between all widget instances.
     _contextObj: null,
@@ -53,10 +54,6 @@ define([
       if (this.readOnly || this.get("disabled") || this.readonly) {
         this._readOnly = true;
       }
-
-      this._active = true;
-      this._handles.push(dojoOn(window, "beforeunload", dojoLang.hitch(this, this._onClose)));
-
     },
 
 
@@ -88,16 +85,29 @@ define([
       logger.debug(this.id + "._setupEvents");
 
       this.connect(this.mxform, "onNavigation", function () {
-        if (this.excludeSelector && this.excludeSelector.trim().length > 0) {
-          dojoQuery(this.excludeSelector).forEach(dojoLang.hitch(this, function (node) {
-            this._handles.push(dojoOn(node, "click", dojoLang.hitch(this, this._onExclude)));
-          }));
+        if (this.executionMode == 'exclude'){
+          if (this.cssSelector && this.cssSelector.trim().length > 0) {
+            dojoQuery(this.cssSelector).forEach(dojoLang.hitch(this, function (node) {
+              this._handles.push(dojoOn(node, "click", dojoLang.hitch(this, this._onExclude)));
+            }));
+          }
+          this._active = true;
+        } else if (this.executionMode == 'include'){
+          if (this.cssSelector && this.cssSelector.trim().length > 0) {
+            dojoQuery(this.cssSelector).forEach(dojoLang.hitch(this, function (node) {
+              this._handles.push(dojoOn(node, "click", dojoLang.hitch(this, this._onInclude)));
+            }));
+          }
         }
+        this._handles.push(dojoOn(window, "beforeunload", dojoLang.hitch(this, this._onClose)));
       });
     },
 
     _onClose: function (event) {
       logger.debug(this.id + "._onClose");
+      if (this.executionMode == 'include'){
+        this._active = true;
+      }
       if (this.warningOnPageClose && this._active) {
         event.preventDefault();
       }
@@ -107,6 +117,11 @@ define([
     _onExclude: function (event) {
       logger.debug(this.id + "._onExclude");
       this._active = false;
+    },
+
+    _onInclude: function (event) {
+      logger.debug(this.id + "._onExclude");
+      this._active = true;
     },
 
     _execMf: function (mf, guid, cb) {

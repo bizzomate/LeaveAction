@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="LeaveAction.widget.LeaveAction" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
-    <name>LeaveAction</name>
-    <description>Execute a microflow when the user leaves the page without using the save/cancel buttons.</description>
-
-    <icon>iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAAGiQbecAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADDUExURS44fztEh42Tubq91eHj7fLz98fK3aCkxWJqn2Ztoejp8f///6aryThBhZSZvdvd6Vxkm/z8/TU+g97g63mArUxUkX2Dr73B15mewT5IiWxzpbC0zzE7gdTW5e/v9V9nnU9Xk3B2p62xzfX2+cvN3/j5+0JLi52hw5ecv0VOjaOox1JalVVdl8HE2UhRj2lwo9ja55CWu9HT43N6qeXm74eMtYOJs7S30YqPt1lhmaquy+vs83Z9q7e6087Q4YCGsQAAAHWuN1gAAABBdFJOU/////////////////////////////////////////////////////////////////////////////////////8AMFXsxwAAAAlwSFlzAAAOwwAADsMBx2+oZAAABD5JREFUWEftmcluIjEQhlugOYwsIiWQQwIicyBCBEWJsowEiPd/ranl99bdBlfSXEb5DlC2y1u3Xa5yN704/DOLmHCOZCSnlJA046ioGanMahAY5+6CFGsrlYmMVuMQmpG0/qAJHk4oOmbdptXd0SdEfZcUJTWYcuIcY2p5AzlnsoQQ4WEwcxpL2gslJpyfTgs8UM4Bcsqa8veQU+i1NX+d2yEpcKvO/VJRcrrYCwaERjeGmMPjhphTLGiOTxAirOzcTETJAHMt4Jby1jSHOWQFnOJcXnNZhQfX3FHWI4l5ASEVeqC35FaQM0oVeKn1lnBmu0R0JU9/Pdyrz2lVifSuOGLXP+Cmmbk1pBZ7fexdZqW+L8iSJt63Zwrw1mOQPM+ntUJzJfoTpIqoGjNHzmmg7ImZKnXgovemWfE/uJPM/l0pRbeyHQSsKaLwdLmIJikqhBwYIl1JcQlRIZA8C9Qvru9ukHEGVp2JpS6dETmsJ4b7RapkNjzCtifiD98NJyC30REIR2QRnIRYBRu4KeQqeP/UrVfAy/z0imjBj6LwlAqsDzb9/wOxZGetTIS8Ewap8yxUv3Q69IAK9V1An0/YOuC/Fo6fPkS/cPL18zldVSwnjMS5Zd3ag7YQ5ku+CqQO8XQQdAexPeh6QorqJSyQWajwzGX0z39gpWtKyztwEc01TDxQMAeiSP+iQ8SDSMs7cBFZPj7Qma26z0TBDeGnQe6415Jm90HqQ4tEhcDeeXTuRaUCW+hXryLoF4fR5h36r0ifBfrVHfjFlBwUp4F+dQfB6a7tgXU5+qudtCwejOsaeSdhRX6tUqNiHuL2iCQVSjVSbyqc/1K3YIlFL4BMqVGwG6oIgk/Cm6nkbcQdmZyD3APEOrg+xDp+KtTwlQqm46q5+ag/oX8YislofFiunnZ8yl6A5PifGny8WhYfaFyhMHFg1LYHurdm30XvTSIUuQ6LvygAz8geEDjkSiEo/ya/fTS/v8AiGpj2GwXznpFvZvfm+QQ3sYdVfrQ+aa6tC46kTzGNZ7Ofqemd36LSKZa6kYOTYtkUYTWqQ9Za/gmj6HBsRbWOe9RBPOl93pP4e5Aawn2VhiP+2s5Djmm80fJY3rCPAhBPteIzf0l27zccc7CtINhkDfU0kIkkMdDWP39j+/SOx8sV7mLauy18B1I2+0f3hg8zXyJ3lE0hexXR6VVOh3B28gPSeiN1nnSdMDVXiQY61s6ylSroWLvq0LKOsNsS3lA2BMHaka8dgtcBfa1g7fRyNbEWB4vRLBLMZ/D9E4N6bd0M6/Zqj6TvNXFYTCFK1/BGWh8XNmFfWDZcfnue0b169pbJtCPa5sbTd/Psp1D5QcEO2rfFlQZu0L7pw4AF+a5BXCxw9d7LwFYpMkMHhi+PNvyeMX06seBN0tAHc8Cb1eGDSwA33f1Benheufnr77hBPyhN8w/ggHDC2spGjAAAAABJRU5ErkJggg==</icon>
-
-    <properties>
-        <property key="mfToExecute" type="microflow" required="true" defaultValue="">
-            <caption>Microflow</caption>
-            <category>Behavior</category>
-            <description>The microflow to execute when the user leaves the page.</description>
-            <returnType type="Void" />
-        </property>
-        <property key="warningOnPageClose" type="boolean" required="true" defaultValue="false">
-            <caption>Warn on closing page</caption>
-            <category>Behavior</category>
-            <description>Should the user be presented with a pop-up when he tries to close the page?</description>
-        </property>
-        <property key="excludeSelector" type="string" required="false" defaultValue=".mx-dataview-controls .mx-button">
-            <caption>CSS exclude selector</caption>
-            <category>Behavior</category>
-            <description>CSS selector for buttons to exclude; Microflow will not be executed if the user moves aways from the page using a matching button.</description>
-        </property>
-    </properties>
+<widget id="LeaveAction.widget.LeaveAction" needsEntityContext="true"
+  xmlns="http://www.mendix.com/widget/1.0/">
+  <name>LeaveAction</name>
+  <description>Execute a microflow when the user leaves the page without using the save/cancel buttons.</description>
+  <icon>iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAAGiQbecAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADDUExURS44fztEh42Tubq91eHj7fLz98fK3aCkxWJqn2Ztoejp8f///6aryThBhZSZvdvd6Vxkm/z8/TU+g97g63mArUxUkX2Dr73B15mewT5IiWxzpbC0zzE7gdTW5e/v9V9nnU9Xk3B2p62xzfX2+cvN3/j5+0JLi52hw5ecv0VOjaOox1JalVVdl8HE2UhRj2lwo9ja55CWu9HT43N6qeXm74eMtYOJs7S30YqPt1lhmaquy+vs83Z9q7e6087Q4YCGsQAAAHWuN1gAAABBdFJOU/////////////////////////////////////////////////////////////////////////////////////8AMFXsxwAAAAlwSFlzAAAOwwAADsMBx2+oZAAABD5JREFUWEftmcluIjEQhlugOYwsIiWQQwIicyBCBEWJsowEiPd/ranl99bdBlfSXEb5DlC2y1u3Xa5yN704/DOLmHCOZCSnlJA046ioGanMahAY5+6CFGsrlYmMVuMQmpG0/qAJHk4oOmbdptXd0SdEfZcUJTWYcuIcY2p5AzlnsoQQ4WEwcxpL2gslJpyfTgs8UM4Bcsqa8veQU+i1NX+d2yEpcKvO/VJRcrrYCwaERjeGmMPjhphTLGiOTxAirOzcTETJAHMt4Jby1jSHOWQFnOJcXnNZhQfX3FHWI4l5ASEVeqC35FaQM0oVeKn1lnBmu0R0JU9/Pdyrz2lVifSuOGLXP+Cmmbk1pBZ7fexdZqW+L8iSJt63Zwrw1mOQPM+ntUJzJfoTpIqoGjNHzmmg7ImZKnXgovemWfE/uJPM/l0pRbeyHQSsKaLwdLmIJikqhBwYIl1JcQlRIZA8C9Qvru9ukHEGVp2JpS6dETmsJ4b7RapkNjzCtifiD98NJyC30REIR2QRnIRYBRu4KeQqeP/UrVfAy/z0imjBj6LwlAqsDzb9/wOxZGetTIS8Ewap8yxUv3Q69IAK9V1An0/YOuC/Fo6fPkS/cPL18zldVSwnjMS5Zd3ag7YQ5ku+CqQO8XQQdAexPeh6QorqJSyQWajwzGX0z39gpWtKyztwEc01TDxQMAeiSP+iQ8SDSMs7cBFZPj7Qma26z0TBDeGnQe6415Jm90HqQ4tEhcDeeXTuRaUCW+hXryLoF4fR5h36r0ifBfrVHfjFlBwUp4F+dQfB6a7tgXU5+qudtCwejOsaeSdhRX6tUqNiHuL2iCQVSjVSbyqc/1K3YIlFL4BMqVGwG6oIgk/Cm6nkbcQdmZyD3APEOrg+xDp+KtTwlQqm46q5+ag/oX8YislofFiunnZ8yl6A5PifGny8WhYfaFyhMHFg1LYHurdm30XvTSIUuQ6LvygAz8geEDjkSiEo/ya/fTS/v8AiGpj2GwXznpFvZvfm+QQ3sYdVfrQ+aa6tC46kTzGNZ7Ofqemd36LSKZa6kYOTYtkUYTWqQ9Za/gmj6HBsRbWOe9RBPOl93pP4e5Aawn2VhiP+2s5Djmm80fJY3rCPAhBPteIzf0l27zccc7CtINhkDfU0kIkkMdDWP39j+/SOx8sV7mLauy18B1I2+0f3hg8zXyJ3lE0hexXR6VVOh3B28gPSeiN1nnSdMDVXiQY61s6ylSroWLvq0LKOsNsS3lA2BMHaka8dgtcBfa1g7fRyNbEWB4vRLBLMZ/D9E4N6bd0M6/Zqj6TvNXFYTCFK1/BGWh8XNmFfWDZcfnue0b169pbJtCPa5sbTd/Psp1D5QcEO2rfFlQZu0L7pw4AF+a5BXCxw9d7LwFYpMkMHhi+PNvyeMX06seBN0tAHc8Cb1eGDSwA33f1Benheufnr77hBPyhN8w/ggHDC2spGjAAAAABJRU5ErkJggg==</icon>
+  <properties>
+    <property key="mfToExecute" type="microflow" required="true" defaultValue="">
+      <caption>Microflow</caption>
+      <category>Behavior</category>
+      <description>The microflow to execute when the user leaves the page.</description>
+      <returnType type="Void" />
+    </property>
+    <property key="warningOnPageClose" type="boolean" required="true" defaultValue="false">
+      <caption>Warn on closing page</caption>
+      <category>Behavior</category>
+      <description>Should the user be presented with a pop-up when he tries to close the page?</description>
+    </property>
+    <property key="executionMode" type="enumeration" required="true" defaultValue="exclude">
+      <caption>Execution mode</caption>
+      <category>Behavior</category>
+      <description>Should the widget always run, except when clicked on a selected button (exclude). Or should the widget never run except when closing tab or clicking on selected button (include).</description>
+      <enumerationValues>
+        <enumerationValue key="exclude">Exclude</enumerationValue>
+        <enumerationValue key="include">Include</enumerationValue>
+      </enumerationValues>
+    </property>
+    <property key="cssSelector" type="string" required="false" defaultValue=".mx-dataview-controls .mx-button">
+      <caption>CSS button selector</caption>
+      <category>Behavior</category>
+      <description>CSS button selector used for exclude/include.</description>
+    </property>
+  </properties>
 </widget>
-
