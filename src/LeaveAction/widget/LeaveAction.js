@@ -4,9 +4,9 @@
     ========================
 
     @file      : LeaveAction.js
-    @version   : 1.1.0
+    @version   : 1.1.1
     @author    : Jelle Dekker
-    @date      : 2017/09/29
+    @date      : 2017/12/07
     @copyright : Bizzomate 2017
     @license   : Apache 2
 
@@ -38,11 +38,12 @@ define([
     _contextObj: null,
     _handles: null,
     _active: false,
+    _pageClose: false,
 
     // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
     constructor: function () {
       // Uncomment the following line to enable debug messages
-      //logger.level(logger.DEBUG);
+     // logger.level(logger.DEBUG);
       logger.debug(this.id + ".constructor");
       this._handles = [];
     },
@@ -99,12 +100,15 @@ define([
             }));
           }
         }
+        this._handles.push(dojoOn(window, "popstate", dojoLang.hitch(this, this._onClose)));
         this._handles.push(dojoOn(window, "beforeunload", dojoLang.hitch(this, this._onClose)));
+
       });
     },
 
     _onClose: function (event) {
       logger.debug(this.id + "._onClose");
+      this._pageClose = true;
       if (this.executionMode == 'include'){
         this._active = true;
       }
@@ -112,6 +116,10 @@ define([
         event.preventDefault();
       }
       this.uninitialize();
+
+      //Make the browser wait 5ms to allow Mendix to call the MF for execution
+      var start = new Date().getTime();
+      while ((new Date().getTime() - start) < 5);
     },
 
     _onExclude: function (event) {
@@ -138,8 +146,11 @@ define([
             }
           }),
           error: function (error) {
-            mx.ui.error("Error executing microflow " + mf + " : " + error.message);
-            console.error(this.id + "._execMf", error);
+            //Hide error on page close, as it will always show otherwise because the page doesn't exist anymore
+            if (!this._pageClose){
+              mx.ui.error("Error executing microflow " + mf + " : " + error.message);
+              console.error(this.id + "._execMf", error);
+            }
           }
         }, this);
       }
