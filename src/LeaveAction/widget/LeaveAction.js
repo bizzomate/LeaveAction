@@ -100,7 +100,7 @@ define([
             }));
           }
         }
-        this._handles.push(dojoOn(window, "popstate", dojoLang.hitch(this, this._onClose)));
+        //this._handles.push(dojoOn(window, "popstate", dojoLang.hitch(this, this._onClose)));
         this._handles.push(dojoOn(window, "beforeunload", dojoLang.hitch(this, this._onClose)));
 
       });
@@ -115,6 +115,7 @@ define([
       if (this.warningOnPageClose && this._active) {
         event.preventDefault();
       }
+
       this.uninitialize();
 
       //Make the browser wait 5ms to allow Mendix to call the MF for execution
